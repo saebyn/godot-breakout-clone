@@ -1,0 +1,130 @@
+[gd_scene load_steps=13 format=3 uid="uid://cc2n5bb6al7qg"]
+
+[ext_resource type="Script" uid="uid://bboilawkmxoyo" path="res://player.gd" id="1_80nbo"]
+[ext_resource type="Script" uid="uid://bv6qm2pdc3iwn" path="res://deadzone.gd" id="2_7jktm"]
+[ext_resource type="Script" uid="uid://dts36x2v8an1" path="res://ball.gd" id="2_e2o6t"]
+[ext_resource type="AudioStream" uid="uid://cawscpr0lq21d" path="res://audio/Pong.ogg" id="3_feb5d"]
+[ext_resource type="Script" uid="uid://dl73nu6lknb08" path="res://hud.gd" id="4_fc0e3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e2o6t"]
+size = Vector2(88, 14.0636)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_feb5d"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_80nbo"]
+size = Vector2(10.8964, 19.9822)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_feb5d"]
+size = Vector2(196.135, 4.75936)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fc0e3"]
+size = Vector2(38.1457, 20.0829)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_7jktm"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ryrav"]
+
+[node name="Game" type="Node2D"]
+
+[node name="Player" type="CharacterBody2D" parent="."]
+position = Vector2(667, 620)
+motion_mode = 1
+script = ExtResource("1_80nbo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+scale = Vector2(1, 0.995477)
+shape = SubResource("RectangleShape2D_e2o6t")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
+position = Vector2(1.84178e-05, 0.0561619)
+scale = Vector2(88, 14.1123)
+texture = SubResource("PlaceholderTexture2D_feb5d")
+
+[node name="LevelManager" type="Node2D" parent="."]
+
+[node name="Walls" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls"]
+position = Vector2(-32, 312.322)
+scale = Vector2(5.87349, 36.0643)
+shape = SubResource("RectangleShape2D_80nbo")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Walls"]
+position = Vector2(576, -85.8216)
+scale = Vector2(5.87349, 36.0643)
+shape = SubResource("RectangleShape2D_feb5d")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Walls"]
+position = Vector2(1184, 312)
+scale = Vector2(5.87349, 36.0643)
+shape = SubResource("RectangleShape2D_80nbo")
+
+[node name="Deadzone" type="Area2D" parent="."]
+position = Vector2(0, 661)
+script = ExtResource("2_7jktm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Deadzone"]
+position = Vector2(576, 132.4)
+scale = Vector2(30.2, 14.48)
+shape = SubResource("RectangleShape2D_fc0e3")
+
+[node name="Ball" type="CharacterBody2D" parent="."]
+position = Vector2(576, 312)
+motion_mode = 1
+script = ExtResource("2_e2o6t")
+spawn_position = Vector2(576, 324)
+
+[node name="Sprite2D" type="Sprite2D" parent="Ball"]
+scale = Vector2(20.3348, 20.2)
+texture = SubResource("PlaceholderTexture2D_7jktm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ball"]
+shape = SubResource("CircleShape2D_ryrav")
+
+[node name="BounceSound" type="AudioStreamPlayer" parent="Ball"]
+stream = ExtResource("3_feb5d")
+bus = &"Effects"
+
+[node name="HUD" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+script = ExtResource("4_fc0e3")
+
+[node name="LivesDisplay" type="HBoxContainer" parent="HUD"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -54.0
+offset_bottom = 40.0
+grow_horizontal = 0
+
+[node name="Label" type="Label" parent="HUD/LivesDisplay"]
+layout_mode = 2
+text = "Lives: "
+
+[node name="Value" type="Label" parent="HUD/LivesDisplay"]
+layout_mode = 2
+text = "n"
+
+[node name="ScoreDisplay" type="HBoxContainer" parent="HUD"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -29.0
+offset_right = 29.0
+offset_bottom = 40.0
+grow_horizontal = 2
+
+[node name="Label" type="Label" parent="HUD/ScoreDisplay"]
+layout_mode = 2
+text = "Score: "
+
+[node name="Value" type="Label" parent="HUD/ScoreDisplay"]
+layout_mode = 2
+text = "n"
+
+[connection signal="body_entered" from="Deadzone" to="Deadzone" method="_on_deadzone_body_entered"]
