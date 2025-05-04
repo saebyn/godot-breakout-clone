@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("1_8g6tw")
-level_name = "First!"
-level_data = ExtResource("1_fwm1l")
-bricks_count = 2
+name = "Level 1"
+scene = ExtResource("1_fwm1l")
+bricks_count = 15
 metadata/_custom_type_script = "uid://dxsywdq0sxh1p"

@@ -30,6 +30,10 @@ window/stretch/scale_mode="integer"
 
 ball=""
 
+[gui]
+
+theme/custom="uid://5wwgiimot5nw"
+
 [input]
 
 move_left={

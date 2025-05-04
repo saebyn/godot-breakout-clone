@@ -1,8 +1,23 @@
 extends Node2D
 
+@export var game_over_scene: PackedScene
+
 @onready var game_menu := $GameMenu
 @onready var game_scene := $GameScene
 @onready var music_player := $MusicAudioStreamPlayer
+
+func _ready() -> void:
+  GameManager.game_over.connect(_on_game_manager_game_over)
+
+
+func _on_game_manager_game_over(player_won: bool) -> void:
+  # Pause the game when game over occurs
+  get_tree().paused = true
+  # Load the game over screen
+  var game_over_node := game_over_scene.instantiate()
+  game_over_node.player_won = player_won
+  get_tree().get_root().add_child(game_over_node)
+  game_over_node.return_to_main_menu.connect(_on_game_menu_return_main_menu)
 
 
 func _input(event: InputEvent) -> void:
@@ -57,5 +72,5 @@ func _on_game_menu_start_game() -> void:
 
 func _on_game_menu_restart_game() -> void:
   print("Restarting game")
-  GameManager.reset_game()
+  GameManager.restart_level()
   resume_game()

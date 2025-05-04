@@ -1,10 +1,16 @@
-[gd_scene load_steps=13 format=3 uid="uid://cc2n5bb6al7qg"]
+[gd_scene load_steps=19 format=3 uid="uid://cc2n5bb6al7qg"]
 
 [ext_resource type="Script" uid="uid://bboilawkmxoyo" path="res://player.gd" id="1_80nbo"]
 [ext_resource type="Script" uid="uid://bv6qm2pdc3iwn" path="res://deadzone.gd" id="2_7jktm"]
 [ext_resource type="Script" uid="uid://dts36x2v8an1" path="res://ball.gd" id="2_e2o6t"]
+[ext_resource type="Script" uid="uid://beaq8s0yn85s8" path="res://level_manager.gd" id="2_j5wjh"]
 [ext_resource type="AudioStream" uid="uid://cawscpr0lq21d" path="res://audio/Pong.ogg" id="3_feb5d"]
+[ext_resource type="Script" uid="uid://dxsywdq0sxh1p" path="res://levels/level.gd" id="3_vef74"]
 [ext_resource type="Script" uid="uid://dl73nu6lknb08" path="res://hud.gd" id="4_fc0e3"]
+[ext_resource type="Resource" uid="uid://dvk5abd6ysj2h" path="res://levels/level_1.tres" id="4_hve3p"]
+[ext_resource type="Resource" uid="uid://kcx0ptm42p4d" path="res://levels/level_2.tres" id="5_vef74"]
+[ext_resource type="Theme" uid="uid://5wwgiimot5nw" path="res://theme/new_theme.tres" id="10_hve3p"]
+[ext_resource type="Material" uid="uid://fymyq4epl6wb" path="res://materials/new_shader_material.tres" id="10_mfdv2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e2o6t"]
 size = Vector2(88, 14.0636)
@@ -40,7 +46,11 @@ position = Vector2(1.84178e-05, 0.0561619)
 scale = Vector2(88, 14.1123)
 texture = SubResource("PlaceholderTexture2D_feb5d")
 
-[node name="LevelManager" type="Node2D" parent="."]
+[node name="LevelManager" type="Node2D" parent="." node_paths=PackedStringArray("label")]
+script = ExtResource("2_j5wjh")
+levels = Array[ExtResource("3_vef74")]([ExtResource("4_hve3p"), ExtResource("5_vef74")])
+label = NodePath("../HUD/CenterContainer/LevelNameLabel")
+level_load_tween_duration = 5.235
 
 [node name="Walls" type="StaticBody2D" parent="."]
 
@@ -92,6 +102,16 @@ offset_right = 1152.0
 offset_bottom = 648.0
 script = ExtResource("4_fc0e3")
 
+[node name="Background" type="ColorRect" parent="HUD"]
+z_index = -463
+material = ExtResource("10_mfdv2")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
 [node name="LivesDisplay" type="HBoxContainer" parent="HUD"]
 layout_mode = 1
 anchors_preset = 1
@@ -126,5 +146,20 @@ text = "Score: "
 [node name="Value" type="Label" parent="HUD/ScoreDisplay"]
 layout_mode = 2
 text = "n"
+
+[node name="CenterContainer" type="CenterContainer" parent="HUD"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LevelNameLabel" type="Label" parent="HUD/CenterContainer"]
+visible = false
+layout_mode = 2
+theme = ExtResource("10_hve3p")
+theme_override_font_sizes/font_size = 60
+text = "Level Name Placeholder"
 
 [connection signal="body_entered" from="Deadzone" to="Deadzone" method="_on_deadzone_body_entered"]

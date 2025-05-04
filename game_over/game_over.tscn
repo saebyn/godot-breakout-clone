@@ -1,0 +1,56 @@
+[gd_scene load_steps=3 format=3 uid="uid://cecprixah1mhe"]
+
+[ext_resource type="Script" uid="uid://d4nsiccxpayjw" path="res://game_over/game_over.gd" id="1_5x5gj"]
+[ext_resource type="Material" uid="uid://fymyq4epl6wb" path="res://materials/new_shader_material.tres" id="1_eaxdo"]
+
+[node name="GameOver" type="Control" node_paths=PackedStringArray("score_label")]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5x5gj")
+score_label = NodePath("CenterContainer/VBoxContainer/ScoreLabel")
+
+[node name="Background" type="ColorRect" parent="."]
+material = ExtResource("1_eaxdo")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="GameOverLabel" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.603922, 0, 0, 0.658824)
+theme_override_font_sizes/font_size = 96
+text = "Game Over"
+
+[node name="ScoreLabel" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Placeholder"
+horizontal_alignment = 1
+
+[node name="MainMenuButton" type="Button" parent="CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(261, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Back to Main Menu"
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/MainMenuButton" to="." method="_on_main_menu_button_pressed"]

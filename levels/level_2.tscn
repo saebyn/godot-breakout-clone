@@ -1,6 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://sgn72wginayg"]
+[gd_scene load_steps=4 format=3 uid="uid://bxg2gq2q5isqm"]
 
-[ext_resource type="Script" uid="uid://dbtr307pt0wef" path="res://brick.gd" id="1_vn7o3"]
+[ext_resource type="Script" uid="uid://dbtr307pt0wef" path="res://brick.gd" id="1_mi4ay"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7jktm"]
 size = Vector2(16.2073, 25.0466)
@@ -11,7 +11,7 @@ size = Vector2(16.2073, 25.0466)
 
 [node name="Brick1" type="StaticBody2D" parent="."]
 position = Vector2(787, 134)
-script = ExtResource("1_vn7o3")
+script = ExtResource("1_mi4ay")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Brick1"]
 position = Vector2(0.254814, 0.0722403)
@@ -24,7 +24,7 @@ texture = SubResource("PlaceholderTexture2D_ryrav")
 
 [node name="Brick2" type="StaticBody2D" parent="."]
 position = Vector2(571, 134)
-script = ExtResource("1_vn7o3")
+script = ExtResource("1_mi4ay")
 points = 20
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Brick2"]
@@ -36,62 +36,9 @@ shape = SubResource("RectangleShape2D_7jktm")
 scale = Vector2(181.971, 41.889)
 texture = SubResource("PlaceholderTexture2D_ryrav")
 
-[node name="Brick9" type="StaticBody2D" parent="."]
-position = Vector2(1003, 246)
-script = ExtResource("1_vn7o3")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Brick9"]
-position = Vector2(0.254814, 0.0722403)
-scale = Vector2(11.1981, 1.6711)
-shape = SubResource("RectangleShape2D_7jktm")
-
-[node name="Sprite2D" type="Sprite2D" parent="Brick9"]
-scale = Vector2(181.971, 41.889)
-texture = SubResource("PlaceholderTexture2D_ryrav")
-
-[node name="Brick11" type="StaticBody2D" parent="."]
-position = Vector2(1003, 191)
-script = ExtResource("1_vn7o3")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Brick11"]
-position = Vector2(0.254814, 0.0722403)
-scale = Vector2(11.1981, 1.6711)
-shape = SubResource("RectangleShape2D_7jktm")
-
-[node name="Sprite2D" type="Sprite2D" parent="Brick11"]
-scale = Vector2(181.971, 41.889)
-texture = SubResource("PlaceholderTexture2D_ryrav")
-
-[node name="Brick12" type="StaticBody2D" parent="."]
-position = Vector2(1003, 134)
-script = ExtResource("1_vn7o3")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Brick12"]
-position = Vector2(0.254814, 0.0722403)
-scale = Vector2(11.1981, 1.6711)
-shape = SubResource("RectangleShape2D_7jktm")
-
-[node name="Sprite2D" type="Sprite2D" parent="Brick12"]
-scale = Vector2(181.971, 41.889)
-texture = SubResource("PlaceholderTexture2D_ryrav")
-
-[node name="Brick10" type="StaticBody2D" parent="."]
-position = Vector2(787, 246)
-script = ExtResource("1_vn7o3")
-points = 20
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Brick10"]
-position = Vector2(0.254814, 0.0722403)
-scale = Vector2(11.1981, 1.6711)
-shape = SubResource("RectangleShape2D_7jktm")
-
-[node name="Sprite2D" type="Sprite2D" parent="Brick10"]
-scale = Vector2(181.971, 41.889)
-texture = SubResource("PlaceholderTexture2D_ryrav")
-
 [node name="Brick3" type="StaticBody2D" parent="."]
-position = Vector2(787, 191)
-script = ExtResource("1_vn7o3")
+position = Vector2(186, 134)
+script = ExtResource("1_mi4ay")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Brick3"]
 position = Vector2(0.254814, 0.0722403)
@@ -103,8 +50,8 @@ scale = Vector2(181.971, 41.889)
 texture = SubResource("PlaceholderTexture2D_ryrav")
 
 [node name="Brick4" type="StaticBody2D" parent="."]
-position = Vector2(571, 191)
-script = ExtResource("1_vn7o3")
+position = Vector2(403, 243)
+script = ExtResource("1_mi4ay")
 points = 20
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Brick4"]
@@ -117,8 +64,8 @@ scale = Vector2(181.971, 41.889)
 texture = SubResource("PlaceholderTexture2D_ryrav")
 
 [node name="Brick5" type="StaticBody2D" parent="."]
-position = Vector2(356, 134)
-script = ExtResource("1_vn7o3")
+position = Vector2(1004, 80)
+script = ExtResource("1_mi4ay")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Brick5"]
 position = Vector2(0.254814, 0.0722403)
@@ -130,8 +77,8 @@ scale = Vector2(181.971, 41.889)
 texture = SubResource("PlaceholderTexture2D_ryrav")
 
 [node name="Brick6" type="StaticBody2D" parent="."]
-position = Vector2(140, 134)
-script = ExtResource("1_vn7o3")
+position = Vector2(788, 80)
+script = ExtResource("1_mi4ay")
 points = 20
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Brick6"]
@@ -144,8 +91,8 @@ scale = Vector2(181.971, 41.889)
 texture = SubResource("PlaceholderTexture2D_ryrav")
 
 [node name="Brick7" type="StaticBody2D" parent="."]
-position = Vector2(356, 191)
-script = ExtResource("1_vn7o3")
+position = Vector2(403, 80)
+script = ExtResource("1_mi4ay")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Brick7"]
 position = Vector2(0.254814, 0.0722403)
@@ -157,8 +104,8 @@ scale = Vector2(181.971, 41.889)
 texture = SubResource("PlaceholderTexture2D_ryrav")
 
 [node name="Brick8" type="StaticBody2D" parent="."]
-position = Vector2(140, 191)
-script = ExtResource("1_vn7o3")
+position = Vector2(620, 189)
+script = ExtResource("1_mi4ay")
 points = 20
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Brick8"]
@@ -170,10 +117,63 @@ shape = SubResource("RectangleShape2D_7jktm")
 scale = Vector2(181.971, 41.889)
 texture = SubResource("PlaceholderTexture2D_ryrav")
 
-[node name="Brick13" type="StaticBody2D" parent="."]
-position = Vector2(140, 246)
-script = ExtResource("1_vn7o3")
+[node name="Brick9" type="StaticBody2D" parent="."]
+position = Vector2(711, 379)
+script = ExtResource("1_mi4ay")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Brick9"]
+position = Vector2(0.254814, 0.0722403)
+scale = Vector2(11.1981, 1.6711)
+shape = SubResource("RectangleShape2D_7jktm")
+
+[node name="Sprite2D" type="Sprite2D" parent="Brick9"]
+scale = Vector2(181.971, 41.889)
+texture = SubResource("PlaceholderTexture2D_ryrav")
+
+[node name="Brick10" type="StaticBody2D" parent="."]
+position = Vector2(495, 379)
+script = ExtResource("1_mi4ay")
 points = 20
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Brick10"]
+position = Vector2(0.254814, 0.0722403)
+scale = Vector2(11.1981, 1.6711)
+shape = SubResource("RectangleShape2D_7jktm")
+
+[node name="Sprite2D" type="Sprite2D" parent="Brick10"]
+scale = Vector2(181.971, 41.889)
+texture = SubResource("PlaceholderTexture2D_ryrav")
+
+[node name="Brick11" type="StaticBody2D" parent="."]
+position = Vector2(110, 379)
+script = ExtResource("1_mi4ay")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Brick11"]
+position = Vector2(0.254814, 0.0722403)
+scale = Vector2(11.1981, 1.6711)
+shape = SubResource("RectangleShape2D_7jktm")
+
+[node name="Sprite2D" type="Sprite2D" parent="Brick11"]
+scale = Vector2(181.971, 41.889)
+texture = SubResource("PlaceholderTexture2D_ryrav")
+
+[node name="Brick12" type="StaticBody2D" parent="."]
+position = Vector2(327, 488)
+script = ExtResource("1_mi4ay")
+points = 20
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Brick12"]
+position = Vector2(0.254814, 0.0722403)
+scale = Vector2(11.1981, 1.6711)
+shape = SubResource("RectangleShape2D_7jktm")
+
+[node name="Sprite2D" type="Sprite2D" parent="Brick12"]
+scale = Vector2(181.971, 41.889)
+texture = SubResource("PlaceholderTexture2D_ryrav")
+
+[node name="Brick13" type="StaticBody2D" parent="."]
+position = Vector2(928, 325)
+script = ExtResource("1_mi4ay")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Brick13"]
 position = Vector2(0.254814, 0.0722403)
@@ -185,8 +185,8 @@ scale = Vector2(181.971, 41.889)
 texture = SubResource("PlaceholderTexture2D_ryrav")
 
 [node name="Brick14" type="StaticBody2D" parent="."]
-position = Vector2(356, 246)
-script = ExtResource("1_vn7o3")
+position = Vector2(712, 325)
+script = ExtResource("1_mi4ay")
 points = 20
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Brick14"]
@@ -199,9 +199,8 @@ scale = Vector2(181.971, 41.889)
 texture = SubResource("PlaceholderTexture2D_ryrav")
 
 [node name="Brick15" type="StaticBody2D" parent="."]
-position = Vector2(571, 246)
-script = ExtResource("1_vn7o3")
-points = 20
+position = Vector2(327, 325)
+script = ExtResource("1_mi4ay")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Brick15"]
 position = Vector2(0.254814, 0.0722403)
@@ -209,5 +208,19 @@ scale = Vector2(11.1981, 1.6711)
 shape = SubResource("RectangleShape2D_7jktm")
 
 [node name="Sprite2D" type="Sprite2D" parent="Brick15"]
+scale = Vector2(181.971, 41.889)
+texture = SubResource("PlaceholderTexture2D_ryrav")
+
+[node name="Brick16" type="StaticBody2D" parent="."]
+position = Vector2(544, 434)
+script = ExtResource("1_mi4ay")
+points = 20
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Brick16"]
+position = Vector2(0.254814, 0.0722403)
+scale = Vector2(11.1981, 1.6711)
+shape = SubResource("RectangleShape2D_7jktm")
+
+[node name="Sprite2D" type="Sprite2D" parent="Brick16"]
 scale = Vector2(181.971, 41.889)
 texture = SubResource("PlaceholderTexture2D_ryrav")

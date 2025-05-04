@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Level" load_steps=3 format=3 uid="uid://kcx0ptm42p4d"]
+
+[ext_resource type="Script" uid="uid://dxsywdq0sxh1p" path="res://levels/level.gd" id="1_2c610"]
+[ext_resource type="PackedScene" uid="uid://bxg2gq2q5isqm" path="res://levels/level_2.tscn" id="1_uno3a"]
+
+[resource]
+script = ExtResource("1_2c610")
+name = "Level 2"
+scene = ExtResource("1_uno3a")
+bricks_count = 16
+metadata/_custom_type_script = "uid://dxsywdq0sxh1p"

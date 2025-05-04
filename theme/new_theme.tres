@@ -5,6 +5,7 @@
 
 [resource]
 default_font = ExtResource("2_l8uce")
+Label/colors/font_outline_color = Color(0, 0, 0, 1)
 Label/constants/outline_size = 3
 Panel/styles/panel = ExtResource("2_2wqca")
 PanelContainer/styles/panel = ExtResource("2_2wqca")

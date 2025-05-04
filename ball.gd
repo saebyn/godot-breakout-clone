@@ -12,7 +12,7 @@ const ACCELERATION = 20.0
 
 func _ready() -> void:
   sprite.visible = false
-  GameManager.restart_level.connect(reset_position)
+  GameManager.respawn_ball.connect(reset_position)
 
 func random_direction():
   # Generate a random angle in radians
