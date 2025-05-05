@@ -1,6 +1,5 @@
 extends Control
 
-
 @export var window_size: Vector2 = Vector2(1152, 648)
 
 @onready var start_screen: Control = $StartScreen
@@ -17,6 +16,7 @@ signal exit_game
 @onready var keybindings_scene: PackedScene = preload("keybindings/keybindings.tscn")
 @onready var mixer_scene: PackedScene = preload("mixer/mixer.tscn")
 @onready var credits_scene: PackedScene = preload("credits.tscn")
+@onready var high_scores_scene: PackedScene = preload("high_scores.tscn")
 
 func _ready() -> void:
   # Make control node occupy the whole screen
@@ -95,3 +95,8 @@ func _on_credits_button_pressed() -> void:
 func _on_mixer_button_pressed() -> void:
   var mixer = mixer_scene.instantiate()
   get_tree().get_root().add_child(mixer)
+
+func _on_high_scores_button_pressed() -> void:
+  var high_scores = high_scores_scene.instantiate()
+  high_scores.return_to_menu.connect(func(): start_screen.show())
+  get_tree().get_root().add_child(high_scores)

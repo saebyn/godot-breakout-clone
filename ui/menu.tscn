@@ -65,6 +65,11 @@ layout_mode = 2
 text = "Credits"
 script = ExtResource("4_0bcp5")
 
+[node name="HighScoresButton" type="Button" parent="StartScreen/VBoxContainer"]
+layout_mode = 2
+text = "High Scores"
+script = ExtResource("4_0bcp5")
+
 [node name="ExitButton" type="Button" parent="StartScreen/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("3_jbsda")
@@ -111,6 +116,7 @@ script = ExtResource("4_0bcp5")
 [connection signal="pressed" from="StartScreen/VBoxContainer/KeybindingsButton" to="." method="_on_keybindings_button_pressed"]
 [connection signal="pressed" from="StartScreen/VBoxContainer/MixerButton" to="." method="_on_mixer_button_pressed"]
 [connection signal="pressed" from="StartScreen/VBoxContainer/CreditsButton" to="." method="_on_credits_button_pressed"]
+[connection signal="pressed" from="StartScreen/VBoxContainer/HighScoresButton" to="." method="_on_high_scores_button_pressed"]
 [connection signal="pressed" from="StartScreen/VBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]
 [connection signal="pressed" from="PauseScreen/VBoxContainer/ResumeButton" to="." method="unpause"]
 [connection signal="pressed" from="PauseScreen/VBoxContainer/RestartButton" to="." method="_on_restart_button_pressed"]
