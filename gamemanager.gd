@@ -1,5 +1,6 @@
 extends Node
 
+var scores_path: String = "user://high_scores.cfg"
 
 class Score extends Resource:
   var score: int
@@ -25,20 +26,29 @@ func _ready() -> void:
   reset_game()
 
 func load_high_scores() -> void:
-  # TODO: implement loading logic
   # Load high scores from a file or database if needed
-  # This is a placeholder for actual loading logic
-  high_scores = [
-    Score.new(1000, "AAA"),
-    Score.new(900, "BBB"),
-    Score.new(800, "CCC"),
-  ]
+  var score_config = ConfigFile.new()
+  if score_config.load(scores_path) == OK:
+    var i = 0
+    while true:
+      var score = score_config.get_value("HighScores", "Score" + str(i), -1)
+      if score == -1:
+        break
+      var initials = score_config.get_value("HighScores", "Initials" + str(i), "")
+      high_scores.append(Score.new(score, initials))
+      i += 1
+
+  high_scores.sort_custom(compare_scores_descending) # Sort in descending order
+  if high_scores.size() > 10:
+    high_scores.resize(10) # Keep only top 10 scores
 
 func save_high_scores() -> void:
-  # TODO: implement saving logic
-  # Save high scores to a file or database if needed
-  # This is a placeholder for actual saving logic
-  pass
+  var score_config = ConfigFile.new()
+  for i in range(high_scores.size()):
+    score_config.set_value("HighScores", "Score" + str(i), high_scores[i].score)
+    score_config.set_value("HighScores", "Initials" + str(i), high_scores[i].initials)
+
+  score_config.save(scores_path)
 
 func is_player_eligible_for_high_score() -> bool:
   if high_scores.size() < 10:
@@ -46,11 +56,15 @@ func is_player_eligible_for_high_score() -> bool:
 
   return player_last_score >= high_scores[high_scores.size() - 1].score
 
+
+func compare_scores_descending(a: Score, b: Score) -> int:
+  return a.score > b.score
+
 # Function to add a new high score, likely called from the game_over scene
-func add_high_score(score: int, initials: String) -> void:
-  var new_score = Score.new(score, initials)
+func add_high_score(initials: String) -> void:
+  var new_score = Score.new(player_last_score, initials)
   high_scores.append(new_score)
-  high_scores.sort_custom(func(a, b): return b.score - a.score) # Sort in descending order
+  high_scores.sort_custom(compare_scores_descending) # Sort in descending order
   if high_scores.size() > 10:
     high_scores.resize(10) # Keep only top 10 scores
 
